@@ -1,0 +1,7 @@
+.header {
+    text-align: center;
+    padding: 20px 5px;
+    
+    background-color: var(--adm-color-primary);
+    color: var(--adm-color-white);
+}
