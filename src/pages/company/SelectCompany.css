@@ -1,0 +1,13 @@
+.main-box {
+    min-height: 80vh;
+    width: 100vw;
+}
+
+.welcome-text {
+    margin-bottom: 50px;
+    color: var(--adm-color-primary);
+}
+
+.companies-list {
+    width: 100vw;
+}
