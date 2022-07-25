@@ -9,7 +9,6 @@ import Routes from './routes';
 function App() {
   return (
     <div>
-      <Header />
       <Routes />
     </div>
   );

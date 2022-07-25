@@ -1,8 +1,5 @@
-.main-box-select-company {
-    margin-top: 80px;
-}
-
 .welcome-text {
+    margin-top: 80px;
     margin-bottom: 100px;
     color: var(--adm-color-primary);
 }

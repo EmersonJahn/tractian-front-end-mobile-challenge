@@ -8,6 +8,7 @@ import './SelectCompany.css'
 import fakeApi from '../../api/fake-api';
 import { Company } from '../../models/Company';
 import ResultBlock from '../../components/ResultBlock';
+import Header from '../../components/Header';
 
 export default () => {
     let navigate = useNavigate();
@@ -40,6 +41,8 @@ export default () => {
 
     return (
         <Space direction='vertical' align='center' className='main-box main-box-select-company'>
+            <Header title="Empresas" />
+
             <h1 className='welcome-text'>Bem vindo</h1>
 
             {loading ?
