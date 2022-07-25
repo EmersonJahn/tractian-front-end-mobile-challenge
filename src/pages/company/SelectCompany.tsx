@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-import { AutoCenter, Button, List, Loading, Space } from 'antd-mobile';
+import { List, Loading, Space } from 'antd-mobile';
 
 import './SelectCompany.css'
 
 import fakeApi from '../../api/fake-api';
 import { Company } from '../../models/Company';
-import { useNavigate } from 'react-router-dom';
-import ErrorBlock from '../../components/ErrorBlock';
+import ResultBlock from '../../components/ResultBlock';
 
 export default () => {
     let navigate = useNavigate();
@@ -32,23 +32,22 @@ export default () => {
                     setErrorMessage(error.message);
                 }
             )
-    }, [])
-
+    }, []);
 
     const selectCompany = (company: Company) => {
         navigate(`/${company.id}`);
     }
 
     return (
-        <Space direction='vertical' align='center' justify='center' className='main-box'>
+        <Space direction='vertical' align='center' className='main-box main-box-select-company'>
             <h1 className='welcome-text'>Bem vindo</h1>
 
             {loading ?
                 <Loading color='primary'></Loading>
             : !!errorMessage ?
-                <ErrorBlock 
-                    title='Erro ao buscar as empresas' 
-                    description={errorMessage}
+                <ResultBlock 
+                    status='error'
+                    title={errorMessage}
                 />
             : 
                 <List header="Selecione uma empresa" className='companies-list'>
