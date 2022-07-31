@@ -1,0 +1,11 @@
+.main-box-assets {
+    height: 80vh;
+    width: 100vw;
+}
+
+.tag-box {
+    width: 97%;
+    position: relative;
+    top: 20px;
+    /* right: 10px; */
+}

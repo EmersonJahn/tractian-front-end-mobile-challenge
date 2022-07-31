@@ -2,10 +2,12 @@ export class AssetStatus {
 
     private _status: string;
     private _statusInPortuguese: string;
+    private _color: string;
     
     constructor (status: string) {
         this._status = status;
         this._statusInPortuguese = this.statusToPortuguese(status);
+        this._color = this.getStatusColor(status);
     }
 
     public get status(): string {
@@ -16,7 +18,11 @@ export class AssetStatus {
         return this._statusInPortuguese;
     }
 
-    private statusToPortuguese(status: string) {
+    public get color(): string {
+        return this._color;
+    }
+
+    private statusToPortuguese(status: string): string {
         if (status === 'inAlert') {
             return 'Em Alerta'
         }
@@ -29,6 +35,22 @@ export class AssetStatus {
             return 'Em Parada'
         }
         
-        return "Não classificado"
+        return 'Não classificado'
+    }
+
+    private getStatusColor(status: string): string {
+        if (status === 'inAlert') {
+            return 'warning'
+        }
+        
+        if (status === 'inOperation') {
+            return 'success'
+        }
+        
+        if (status === 'inDowntime') {
+            return 'default'
+        }
+        
+        return 'default'
     }
 }

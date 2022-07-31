@@ -14,7 +14,7 @@ export default (props: HeaderProps) => (
         <SafeArea position="top" />
         {/* TRACTIAN - FRONT-END - MOBILE CHALLENGE */}
         { !!props.goBackTo ?
-            <Link to={"/"}>
+            <Link to={props.goBackTo}>
                 <Button
                     className="back-button"
                     color="primary"

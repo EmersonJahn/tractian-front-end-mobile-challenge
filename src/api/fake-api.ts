@@ -1,4 +1,8 @@
 import axios, { AxiosResponse } from "axios"
+import { Asset } from "../models/Asset";
+import { AssetMetric } from "../models/AssetMetric";
+import { AssetSpecification } from "../models/AssetSpecification";
+import { AssetStatus } from "../models/AssetStatus";
 
 class FakeApi {
     
@@ -45,7 +49,30 @@ class FakeApi {
     getUnitsByCompanyId(companyId: number): Promise<{ data?: any, message?: any }> {
         return this._genericRequest("units", "get", null, `?companyId=${companyId}`);
     }
+    
+    getAssetsWithUrlParams(urlParams?: string) {
+        return this._genericRequest("assets", "get", null, urlParams)
+        .then(assets => {
+            return assets.data.map((data: any) => this.dataToAsset(data));
+         });
+    }
 
+    private dataToAsset(data: any): Asset {      
+        return new Asset(
+            data.id,
+            data.sensors,
+            data.model,
+            new AssetStatus(data.status),
+            data.healthscore,
+            data.name,
+            data.image,
+            new AssetSpecification(data.specifications),
+            new AssetMetric(data.metrics),
+            data.unitId,
+            data.companyId,
+        );
+
+    }
 }
 
 export default new FakeApi() as FakeApi

@@ -4,10 +4,16 @@ export class AssetSpecification {
     private _power?: number;
     private _rpm?: number;
 
-    constructor (maxTemp?: number, power?: number, rpm?: number) {
-        this._maxTemp = maxTemp; 
-        this._power = power; 
-        this._rpm = rpm; 
+    constructor (specifications: any) {
+        if (specifications.maxTemp) {
+            this._maxTemp = specifications.maxTemp; 
+        }
+        if (specifications.power) {
+            this._power = specifications.power; 
+        }
+        if (specifications.rpm) {
+            this._rpm = specifications.rpm; 
+        }
     }
 
     public get maxTemp(): number | undefined {
