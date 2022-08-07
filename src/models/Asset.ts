@@ -15,8 +15,9 @@ export class Asset {
     private _metrics: AssetMetric;
     private _unitId: number;
     private _companyId: number;
+    private _inChargeId?: number;
 
-    constructor (id: number, sensors: string[], model: string, status: AssetStatus, healthscore: number, name: string, image: string, specifications: AssetSpecification, metrics: AssetMetric, unitId: number, companyId: number) {
+    constructor (id: number, sensors: string[], model: string, status: AssetStatus, healthscore: number, name: string, image: string, specifications: AssetSpecification, metrics: AssetMetric, unitId: number, companyId: number, inChargeId?: number) {
         this._id = id;
         this._sensors = sensors;
         this._model = model;
@@ -28,6 +29,7 @@ export class Asset {
         this._metrics = metrics;
         this._unitId = unitId;
         this._companyId = companyId;
+        this._inChargeId = inChargeId;
     }
 
     public get id(): number {
@@ -72,6 +74,10 @@ export class Asset {
     
     public get companyId(): number {
         return this._companyId;
+    }
+    
+    public get inChargeId(): number | undefined {
+        return this._inChargeId;
     }
 
 }

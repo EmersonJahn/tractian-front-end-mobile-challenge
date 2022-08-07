@@ -50,11 +50,19 @@ class FakeApi {
         return this._genericRequest("units", "get", null, `?companyId=${companyId}`);
     }
     
-    getAssetsWithUrlParams(urlParams?: string) {
-        return this._genericRequest("assets", "get", null, urlParams)
-        .then(assets => {
-            return assets.data.map((data: any) => this.dataToAsset(data));
-         });
+    async getAssetsWithUrlParams(urlParams?: string) {
+        const assets = await this._genericRequest("assets", "get", null, urlParams);
+        return assets.data.map((data: any) => this.dataToAsset(data));
+    }
+
+    async getAssetById(assetId: number) {
+        const asset = await this._genericRequest("assets", "get", null, `/${assetId}`);
+        return this.dataToAsset(asset.data);
+    }
+
+    getUsersWithByCompanyIdAndUnitId(companyId: number, unitId: number): Promise<{ data?: any, message?: any }> {
+        return this._genericRequest("users", "get", null, `?companyId=${companyId}&unitId=${unitId}`);
+        // return users.data.map((data: any) => this.dataToAsset(data));
     }
 
     private dataToAsset(data: any): Asset {      
@@ -70,6 +78,7 @@ class FakeApi {
             new AssetMetric(data.metrics),
             data.unitId,
             data.companyId,
+            data.inChargeId,
         );
 
     }
