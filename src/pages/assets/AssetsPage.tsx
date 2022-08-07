@@ -35,7 +35,7 @@ export default () => {
             assets => {
                 setAssets(assets);
                 setErrorMessage("");
-                setSearched(true); // para nao mostrar a mensagem de nao encontrado antes de busca pela primeira vez
+                setSearched(true); // para nao mostrar a mensagem de nao encontrado antes de buscar pela primeira vez
                 setLoading(false);
             }
         )
@@ -43,7 +43,7 @@ export default () => {
             error => {
                 console.error(error);
                 setErrorMessage(error.message);
-                setSearched(true); // para nao mostrar a mensagem de nao encontrado antes de busca pela primeira vez
+                setSearched(true); // para nao mostrar a mensagem de nao encontrado antes de buscar pela primeira vez
                 setLoading(false);
             }
         )
@@ -60,8 +60,8 @@ export default () => {
     }
 
     const goToAssetsDetails = (asset: Asset) => {
-        console.log('goTo');
-        navigate(`/${companyId}/${unitId}/assets/${asset.id}`, {state: {asset: asset}});
+        // navigate(`/${companyId}/${unitId}/assets/${asset.id}`, {state: {asset: asset}});
+        navigate(`/${companyId}/${unitId}/assets/${asset.id}`);
     }
     
     return (
@@ -81,7 +81,7 @@ export default () => {
                 </Form.Item>
             </Form>
 
-            <Space direction='vertical' align='center' justify={loading || !!errorMessage || assets.length === 0 ? 'center' : 'start'} className='main-box-assets'>
+            <Space direction='vertical' align='center' justify={loading || !!errorMessage || assets.length === 0 ? 'center' : 'start'} className='secondary-box'>
                 {loading ?
                     <Loading color='primary'></Loading>
                 : !!errorMessage ?

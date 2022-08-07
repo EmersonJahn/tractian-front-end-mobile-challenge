@@ -15,6 +15,11 @@ code {
 }
 
 .main-box {
-  min-height: 100vh;
+  min-height: 95vh;
+  width: 100vw;
+}
+
+.secondary-box {
+  min-height: 80vh;
   width: 100vw;
 }

@@ -38,7 +38,7 @@ export default () => {
                     setErrorMessage(error.message);
                 }
             )
-    }, []);
+    }, [companyId]);
 
     const selectUnity = (unity: Unity) => {
         navigate(`/${companyId}/${unity.id}/assets/`);
@@ -48,7 +48,7 @@ export default () => {
         <Space direction='vertical' className='main-box'>
             <Header title="Unidades" goBackTo="/" />
 
-            <Space direction='vertical' align='center' justify='center' className='main-box-select'>
+            <Space direction='vertical' align='center' justify='center' className='secondary-box'>
                 {loading ?
                     <Loading color='primary'></Loading>
                 : !!errorMessage ?
