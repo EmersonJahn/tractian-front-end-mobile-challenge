@@ -1,0 +1,17 @@
+.asset-item {
+    padding-left: 0;
+}
+
+.asset-item, .adm-list-default .adm-list-body {
+    border-top: none;
+}
+
+.metrics p {
+    margin: 0;
+}
+
+.metrics p span {
+    /* font-weight: 600; */
+    font-size: 0.9rem;
+    color: var(--adm-color-text-secondary);;
+}

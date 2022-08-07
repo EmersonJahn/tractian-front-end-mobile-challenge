@@ -1,12 +1,12 @@
 export class AssetMetric {
     private _totalCollectsUptime: number;
     private _totalUptime: number;
-    private _lastUptimeAt: string;
+    private _lastUptimeAt: Date;
 
     constructor (metrics: any) {
         this._totalCollectsUptime = metrics.totalCollectsUptime;
         this._totalUptime  = metrics.totalUptime;
-        this._lastUptimeAt = metrics.lastUptimeAt;
+        this._lastUptimeAt = new Date(metrics.lastUptimeAt);
     }
 
     public get totalCollectsUptime(): number {
@@ -17,7 +17,7 @@ export class AssetMetric {
         return this._totalUptime;
     }
 
-    public get lastUptimeAt(): string {
+    public get lastUptimeAt(): Date {
         return this._lastUptimeAt;
     }
 }
