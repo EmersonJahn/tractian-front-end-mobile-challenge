@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import { Location } from 'history';
 
-import { Button, Form, Image, Input, List, Loading, Selector, Space, Tag } from 'antd-mobile';
+import { Button, Dialog, Form, Image, Input, List, Loading, Selector, Space, Tag, Toast } from 'antd-mobile';
 import { HeartFill } from 'antd-mobile-icons';
 
 import './AssetDetails.css'
@@ -12,6 +12,8 @@ import fakeApi from '../../api/fake-api';
 import ResultBlock from '../../components/ResultBlock';
 import Header from '../../components/Header';
 import { User } from '../../models/User';
+import { AssetStatus } from '../../models/AssetStatus';
+import { AssetSpecification } from '../../models/AssetSpecification';
 
 export default () => {
     const { companyId, unitId, assetId } = useParams();
@@ -74,11 +76,53 @@ export default () => {
         )
     }
 
-    const onFinish = () => {
-        console.log('finisih');
-        const n = form.getFieldValue('name');
-        console.log('n', n);
-        
+    const onFinish = async () => {
+        const confirm = await Dialog.confirm({
+            content: "Você tem certeza que deseja salvar as alterações?",
+            cancelText: "Não",
+            confirmText: "Sim",
+        })
+
+        if (confirm) {
+            const name = form.getFieldValue('name');
+            const model = form.getFieldValue('model');
+            const healthscore = form.getFieldValue('healthscore');
+            const status = form.getFieldValue('status');
+            const inChargeId = form.getFieldValue('inChargeId');
+            // const sensors = form.getFieldValue('sensors');
+            // const metrics = form.getFieldValue('metrics');
+            // const specifications = form.getFieldValue('specifications');
+            const maxTemp = form.getFieldValue('maxTemp');
+            const power = form.getFieldValue('power');
+            const rpm = form.getFieldValue('rpm');
+
+            const newAsset = new Asset(asset!.id, asset!.sensors, model, new AssetStatus(status), healthscore, name, asset!.image, new AssetSpecification({maxTemp, power, rpm}), asset!.metrics, asset!.unitId, asset!.companyId, inChargeId);
+            saveAsset(newAsset);
+        }
+    }
+
+    const saveAsset = (newAsset: Asset) => {
+        setSaving(true);
+        fakeApi.updateAsset(newAsset)
+        .then(
+            asset => {
+                // setAsset(asset);
+                setSaving(false);
+                setChanged(false);
+
+                Toast.show({
+                    icon: 'success',
+                    content: 'Ativo salvo com sucesso!',
+                    position: 'center',
+                })
+            }
+        )
+        .catch(
+            error => {
+                console.log('error', error);
+                setSaving(false);
+            }
+        )
     }
 
     return (
@@ -111,16 +155,16 @@ export default () => {
                                 healthscore: asset.healthscore,
                                 status: asset.status.status,
                                 inChargeId: asset.inChargeId,
-                                sensors: asset.sensors,
-                                metrics: asset.metrics,
-                                specifications: asset.specifications,
+                                // sensors: asset.sensors,
+                                // metrics: asset.metrics,
+                                // specifications: asset.specifications,
                                 maxTemp: asset.specifications.maxTemp,
                                 power: asset.specifications.power,
                                 rpm: asset.specifications.rpm,
                             }}
                             layout='vertical'
                             footer={
-                                <Button block color='primary' type='submit' loading={saving} >
+                                <Button block color='primary' type='submit' loading={saving} disabled={saving || !changed} >
                                     Salvar 
                                 </Button>
                             }
@@ -196,10 +240,10 @@ export default () => {
                             </Form.Item>
                             <Form.Item 
                                 label='Sensores'
-                                name='sensors'
+                                // name='sensors'
                             >
                                 {asset.sensors.map((sensor: string, index: number) => (
-                                    <Tag color='primary'>{sensor}</Tag>
+                                    <Tag key={index} color='primary'>{sensor}</Tag>
                                 ))}
                                 {/* <List>
                                     {asset.sensors.map((sensor: string, index: number) => (
@@ -231,7 +275,7 @@ export default () => {
                             : null} */}
                             <Form.Item
                                 label='Métricas'
-                                name='metrics'
+                                // name='metrics'
                                 className='metrics'
                             >
                                 <p><span>Total de coletas: </span>{asset.metrics.totalCollectsUptime}</p>
