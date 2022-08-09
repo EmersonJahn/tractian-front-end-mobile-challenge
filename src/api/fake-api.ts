@@ -67,7 +67,7 @@ class FakeApi {
         return respAsset.data;
     }  
 
-    getUsersWithByCompanyIdAndUnitId(companyId: number, unitId: number): Promise<{ data?: any, message?: any }> {
+    getUsersByCompanyIdAndUnitId(companyId: number, unitId: number): Promise<{ data?: any, message?: any }> {
         return this._genericRequest("users", "get", null, `?companyId=${companyId}&unitId=${unitId}`);
         // return users.data.map((data: any) => this.dataToAsset(data));
     }  
