@@ -5,6 +5,8 @@ import { HistogramOutline, UserOutline } from "antd-mobile-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
+import './BottomMenu.css';
+
 export default () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,11 +38,11 @@ export default () => {
 
     return (
         showMenu ? 
-        <TabBar onChange={naviteTo}>
-            {tabs.map(item => (
-                <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
-            ))}
-        </TabBar>
+            <TabBar onChange={naviteTo} className="tabsBar">
+                {tabs.map(item => (
+                    <TabBar.Item key={item.key} icon={item.icon} title={item.title} />
+                ))}
+            </TabBar>
         : null
     )
 }
