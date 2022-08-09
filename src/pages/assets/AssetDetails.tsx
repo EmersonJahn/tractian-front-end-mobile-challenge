@@ -64,7 +64,7 @@ export default () => {
         fakeApi.getUsersByCompanyIdAndUnitId(+companyId, +unitId)
         .then(
             users => {
-                setUsers(users.data);// para nao mostrar a mensagem de nao encontrado antes de buscar pela primeira vez
+                setUsers(users.data);
                 setLoading(false);
             }
         )
