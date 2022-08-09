@@ -10,11 +10,13 @@ import './BottomMenu.css';
 export default () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { companyId, unitId } = useParams();
+    // const { companyId, unitId } = useParams();
 
     const showMenu: boolean = location.pathname.endsWith("assets/") || location.pathname.endsWith("dashboard/") || location.pathname.endsWith("users/")
 
     const naviteTo = (value: string) => {
+        const companyId = location.pathname.split("/")[1];
+        const unitId = location.pathname.split("/")[2];        
         navigate(`/${companyId}/${unitId}/${value}`);
     }
     
