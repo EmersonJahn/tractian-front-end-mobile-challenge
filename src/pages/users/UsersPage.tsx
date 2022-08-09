@@ -71,7 +71,7 @@ export default () => {
                     />
                 : 
                     users.map((user: User) => (
-                        <Collapse style={{width: '100vw'}}>
+                        <Collapse key={user.id} style={{width: '100vw'}}>
                             <Collapse.Panel key={user.id.toString()} title={user.name}>
                                 <Space direction="vertical">
                                     {user.email}

@@ -3,6 +3,7 @@ import { Asset } from "../models/Asset";
 import { AssetMetric } from "../models/AssetMetric";
 import { AssetSpecification } from "../models/AssetSpecification";
 import { AssetStatus } from "../models/AssetStatus";
+import { User } from "../models/User";
 
 class FakeApi {
     
@@ -72,6 +73,15 @@ class FakeApi {
         // return users.data.map((data: any) => this.dataToAsset(data));
     }  
 
+    getUserById(userId: number): Promise<{ data?: any, message?: any }> {
+        return this._genericRequest("users", "get", null, `/${userId}`);
+    }
+
+    async updateUser(user: User): Promise<User> {
+        const respUser = await this._genericRequest("users", "put", user, `/${user.id}`);
+        return respUser.data;
+    }
+
     private dataToAsset(data: any): Asset {      
         return new Asset(
             data.id,
@@ -89,22 +99,6 @@ class FakeApi {
         );
     }
 
-    // private updatedDataToAsset(updateddata: any): Asset {      
-    //     return new Asset(
-    //         data.id,
-    //         data.sensors,
-    //         data.model,
-    //         new AssetStatus(data.status),
-    //         data.healthscore,
-    //         data.name,
-    //         data.image,
-    //         new AssetSpecification(data.specifications),
-    //         new AssetMetric(data.metrics),
-    //         data.unitId,
-    //         data.companyId,
-    //         data.inChargeId,
-    //     );
-    // }
 }
 
 export default new FakeApi() as FakeApi

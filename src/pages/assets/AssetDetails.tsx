@@ -127,7 +127,7 @@ export default () => {
 
     return (
         <Space direction='vertical' className='main-box'>
-            <Header title={asset?.name ? asset.name : ''} goBackTo={`/${companyId}/${unitId}/assets/`} />
+            <Header title={asset?.name ? ('Editando ' + asset.name): ''} goBackTo={`/${companyId}/${unitId}/assets/`} />
             
             <Space direction='vertical' align='center' justify='center' className='secondary-box'>
                 {loading ?
