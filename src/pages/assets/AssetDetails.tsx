@@ -155,9 +155,6 @@ export default () => {
                                 healthscore: asset.healthscore,
                                 status: asset.status.status,
                                 inChargeId: asset.inChargeId,
-                                // sensors: asset.sensors,
-                                // metrics: asset.metrics,
-                                // specifications: asset.specifications,
                                 maxTemp: asset.specifications.maxTemp,
                                 power: asset.specifications.power,
                                 rpm: asset.specifications.rpm,
@@ -240,39 +237,11 @@ export default () => {
                             </Form.Item>
                             <Form.Item 
                                 label='Sensores'
-                                // name='sensors'
                             >
                                 {asset.sensors.map((sensor: string, index: number) => (
                                     <Tag key={index} color='primary'>{sensor}</Tag>
                                 ))}
-                                {/* <List>
-                                    {asset.sensors.map((sensor: string, index: number) => (
-                                        <List.Item 
-                                            key={index} 
-                                            className='asset-item'
-                                        >
-                                            {sensor}
-                                        </List.Item>
-                                    ))}
-                                </List> */}
                             </Form.Item>
-                            {/* {Object.keys(asset.specifications).length > 0 ?
-                                <Form.Item
-                                    label='Especificações'
-                                    name='specifications'
-                                    className='specifications'
-                                >
-                                    {asset.specifications.maxTemp ? 
-                                        <p>Temperatura máxima: {asset.specifications.maxTemp} °C</p>
-                                    : null}
-                                    {asset.specifications.power ? 
-                                        <p>Potência: {asset.specifications.power} kWh</p>
-                                    : null}
-                                    {asset.specifications.rpm ? 
-                                        <p>RPM: {asset.specifications.rpm}</p>
-                                    : null}                
-                                </Form.Item>
-                            : null} */}
                             <Form.Item
                                 label='Métricas'
                                 // name='metrics'
