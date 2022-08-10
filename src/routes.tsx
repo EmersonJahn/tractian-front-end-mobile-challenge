@@ -3,6 +3,7 @@ import AssetDetails from "./pages/assets/AssetDetails";
 
 import AssetsPage from "./pages/assets/AssetsPage";
 import SelectCompany from "./pages/company/SelectCompany";
+import DashboardPage from "./pages/dashboard/DashboardPage";
 import SelectUnity from "./pages/units/SelectUnity";
 import UserDetails from "./pages/users/UserDetails";
 import UsersPage from "./pages/users/UsersPage";
@@ -14,6 +15,7 @@ export default () => (
         <Route path="/:companyId/:unitId/assets/" element={<AssetsPage />} />
         <Route path="/:companyId/:unitId/assets/:assetId/" element={<AssetDetails />} />
         <Route path="/:companyId/:unitId/users/" element={<UsersPage />} />
-        <Route path="/:companyId/:unitId/users/:userId" element={<UserDetails />} />
+        <Route path="/:companyId/:unitId/users/:userId/" element={<UserDetails />} />
+        <Route path="/:companyId/:unitId/dashboard/" element={<DashboardPage />} />
     </Routes>
 );

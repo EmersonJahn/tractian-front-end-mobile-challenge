@@ -34,6 +34,7 @@ export default (props: HealthscoreChartProps) => {
             series: [{
                 type: 'line',
                 data: data,
+                name: 'Nível de saúde'
             }],
             credits: {
                 enabled: false

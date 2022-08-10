@@ -40,6 +40,7 @@ export default (props: StatusChartProps) => {
             series: [{
                 type: 'pie',
                 data: filteredData,
+                name: 'Total'
             }],
             plotOptions: {
                 pie: {

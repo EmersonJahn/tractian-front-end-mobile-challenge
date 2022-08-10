@@ -53,8 +53,13 @@ class FakeApi {
         return this._genericRequest("units", "get", null, `?companyId=${companyId}`);
     }
     
-    async getAssetsWithUrlParams(urlParams?: string) {
+    async getAssetsWithUrlParams(urlParams?: string): Promise<Asset[]> {
         const assets = await this._genericRequest("assets", "get", null, urlParams);
+        return assets.data.map((data: any) => this.dataToAsset(data));
+    }
+
+    async getAssetsByCompanyIdAndUnitId(companyId: number, unitId: number): Promise<Asset[]> {
+        const assets = await this._genericRequest("assets", "get", null, `?companyId=${companyId}&unitId=${unitId}`);
         return assets.data.map((data: any) => this.dataToAsset(data));
     }
 
