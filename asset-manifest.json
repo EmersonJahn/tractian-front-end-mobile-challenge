@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/EmersonJahn/tractian-front-end-mobile-challenge/static/css/main.a1157b6e.css",
-    "main.js": "/EmersonJahn/tractian-front-end-mobile-challenge/static/js/main.7663de1b.js",
-    "static/js/787.5f2aa32a.chunk.js": "/EmersonJahn/tractian-front-end-mobile-challenge/static/js/787.5f2aa32a.chunk.js",
-    "index.html": "/EmersonJahn/tractian-front-end-mobile-challenge/index.html",
-    "main.a1157b6e.css.map": "/EmersonJahn/tractian-front-end-mobile-challenge/static/css/main.a1157b6e.css.map",
-    "main.7663de1b.js.map": "/EmersonJahn/tractian-front-end-mobile-challenge/static/js/main.7663de1b.js.map",
-    "787.5f2aa32a.chunk.js.map": "/EmersonJahn/tractian-front-end-mobile-challenge/static/js/787.5f2aa32a.chunk.js.map"
+    "main.css": "/tractian-front-end-mobile-challenge/static/css/main.a1157b6e.css",
+    "main.js": "/tractian-front-end-mobile-challenge/static/js/main.04cc01f8.js",
+    "static/js/787.5f2aa32a.chunk.js": "/tractian-front-end-mobile-challenge/static/js/787.5f2aa32a.chunk.js",
+    "index.html": "/tractian-front-end-mobile-challenge/index.html",
+    "main.a1157b6e.css.map": "/tractian-front-end-mobile-challenge/static/css/main.a1157b6e.css.map",
+    "main.04cc01f8.js.map": "/tractian-front-end-mobile-challenge/static/js/main.04cc01f8.js.map",
+    "787.5f2aa32a.chunk.js.map": "/tractian-front-end-mobile-challenge/static/js/787.5f2aa32a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a1157b6e.css",
-    "static/js/main.7663de1b.js"
+    "static/js/main.04cc01f8.js"
   ]
 }
