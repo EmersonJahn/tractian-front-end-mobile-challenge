@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+## DEPLOY
+- Link: https://emersonjahn.github.io/tractian-front-end-mobile-challenge/
+- Obs: Desenvolvido somente para celulares e na orientação vertical.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
 
-## Available Scripts
+## DESAFIO
 
-In the project directory, you can run:
+Construir uma aplicação web mobile que mostre todos os dados e ações possíveis que utilizam a API criada no desafio back-end.
 
-### `npm start`
+### Importante:
+- Mostrar todas as características do ativos;
+- Mostrar empresas, unidades e usuários;
+- Ações como delegar responsável, atualizar ativo, empresa, unidade e usuários;
+- Utilizar gráficos para mostrar os níveis de saúde, status e etc.
+- Consumir API (https://github.com/tractian/fake-api)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Obrigatório:
+- Engine (React)
+- Gráficos (Highcharts)
+- Ant Design Mobile
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Diferenciais:
+- Typescript;
+- Padrão de Projetos(Código Limpo/Arquitetura Limpa);
 
-### `npm test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### !! Faça apenas o desafio para resoluções de celulares e orientação na vertical.
+#### !!! Consiga abstrair bem o problema apresentado e defina você mesmo
+ quais dados considera mais importante, pense com a cabeça do usuário:
+o que uma pessoa de indústria precisa saber sobre seus ativos?
+Além das bibliotecas obrigatórias, você pode usar qualquer outra coisa 
+e ao final publique seu código no GitHub e faça o deploy da aplicação 
+(sugestão Heroku) porque a gente quer ver online, depois nos mande os links.
