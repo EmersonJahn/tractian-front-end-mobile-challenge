@@ -1,0 +1,6 @@
+.highcharts-container,
+.highcharts-container svg {
+  /* I think !important is optional here, I didn't really tested it without using it */
+  width: 100% !important;
+  height: 100% !important;
+}
